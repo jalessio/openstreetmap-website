@@ -37,14 +37,29 @@ To build local Docker images run from the root directory of the repository:
 
 If this is your first time running or you have removed cache this will take some time to complete. Once the Docker images have finished building you can launch the images as containers.
 
-To launch the app run:
+### Launch the app
+
+To run the app in the background (recommended), use:
 
     docker-compose up -d
 
-This will launch one Docker container for each 'service' specified in `docker-compose.yml` and run them in the background. There are two options for inspecting the logs of these running containers:
+To run the app in the foreground, use:
 
-- You can tail logs of a running container with a command like this: `docker-compose logs -f web` or `docker-compose logs -f db`.
-- Instead of running the containers in the background with the `-d` flag, you can launch the containers in the foreground with `docker-compose up`. The downside of this is that the logs of all the 'services' defined in `docker-compose.yml` will be intermingled. If you don't want this you can mix and match - for example, you can run the database in background with `docker-compose up -d db` and then run the Rails app in the foreground via `docker-compose up web`.
+    docker-compose up
+
+Both will launch one Docker container for each 'service' specified in `docker-compose.yml`. 
+
+### Inspecting the logs
+
+If you run the app in the background with the `-d` option, you can tail logs of a running container with
+
+    docker-compose logs -f web
+
+and
+
+    docker-compose logs -f db
+
+If you run the app in the foreground the logs of all the 'services' defined in `docker-compose.yml` will be intermingled.
 
 ### Migrations
 
