@@ -96,3 +96,9 @@ Alternatively, if you want to use the already-running `web` container then you c
 Similarly, if you want to `exec` in the db container use:
 
     docker-compose exec db bash
+
+### `bundle install`
+
+Instead of running bundle directly, you need to re-run the build process:
+
+    docker-compose build
